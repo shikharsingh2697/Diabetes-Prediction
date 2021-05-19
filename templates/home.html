@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <title>Do I have diabetes?</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    }
+
+    html, body {
+    scroll-behavior: smooth;
+    min-height:100%;
+    background: #F4EAE6;
+    color: rgb(37, 37, 37);
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 6vh;
+    }   
+
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 10vh;
+        margin: 0 auto;
+    }
+    .dropdown {
+        height: 2vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        list-style-type: none;
+        margin-right: 20px;
+        float:right;
+    }
+
+    .dropdown button{
+        background: none;
+        border: none;
+        color: #2F5061;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.3s;
+        letter-spacing: 1px;
+        outline: none;
+    }
+
+    .dropdown:hover button:not(:hover){
+        color: #dfdfdf;
+    }
+
+    .dihd{
+        max-width:100%;
+        padding: 50px;
+        height: 75vh;
+
+    }
+
+    .dihd-desc{
+        float: left;
+        width:60%;
+        padding: 90px;
+    }
+
+    .dihd h1{
+        font-size: 40px;
+        color:#4297A0;
+        margin-bottom: 20px;
+    }
+
+    .img-container{
+        float: right;
+        width: 40%;
+    }
+
+    .dihd-img{
+        width: 400px;
+        margin-top: 40px;
+    }
+
+    .diabetes-edu, .description{
+        padding: 20px;
+        padding-top: 50px;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .description{
+        margin-top: 100px;
+    }
+
+    .description h2, .diabetes-edu p{
+        margin-top: 10px;
+    }
+
+    .form-wrapper{
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    .form-wrapper h2{
+        padding: 10px;
+    }
+
+    input{
+        padding: 14px 7px;
+        margin: 8px;
+        display: inline-block;
+        border: 1px solid rgb(32, 32, 32);
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        background-color: transparent;
+        color: #4297A0;
+        font-weight: 700;
+        padding:0.7em 2.4em;
+        border:0.1em solid #4297A0;
+        margin:2em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s;
+        text-transform: capitalize;
+    }
+    input[type=submit]:hover {
+        color:white;
+        background-color: #4297A0;
+    }
+
+    h2{
+        color: #4297A0;
+    }
+
+    .result{
+        padding:2.1em 7.2em;
+        border:0.1em solid #4297A0;
+        margin:4em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+    }
+
+    @media screen and (max-width: 768px) {
+        .result{
+            padding: 0.7em 2.4em;
+            font-size: 14px;
+        }
+
+        .dropdown{
+            display: none !important;
+        }
+
+        .dihd-img{
+            display:none;
+        }
+
+        .dihd-desc{
+            width: 100%;
+            padding: 20px;
+        }
+
+        .dihd-desc h1{
+            line-height: 1.3;
+        }
+    }
+    
+    .types{
+        margin-top: 20px;
+    }
+
+    ul{
+        margin-left: 40px;
+    }
+
+    footer{
+        text-align: center;
+        font-size: 12px;
+        padding: 20px;
+    }
+</style>
+<body>
+    <nav>
+        <ul class="dropdown">
+                <li>
+                    <a href="#home">
+                        <button>HOME</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#overview">
+                        <button>OVERVIEW</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#check">
+                        <button>CHECK</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#types">
+                        <button>TYPES</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#tips">
+                        <button>TIPS</button>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    
+    <div class="dihd">
+        <div class="dihd-desc">
+            <h1>Do I have diabetes?</h1>
+            <p>Diabetes is a disease in which the body's capacity to process blood glucose, often known as blood sugar, is impaired. Diabetes can cause a buildup of sugars in the blood, which can raise the risk of serious consequences including stroke and heart disease if not managed properly. Use this tool to determine whether you have a high risk of developing diabetes.</p>
+        </div>
+        <div class="img-container">
+            <a href="https://ibb.co/0JbMLjM"><img class="dihd-img" src="https://i.ibb.co/0JbMLjM/amico.png" alt="amico" border="0"></a>
+        </div>
+    </div>
+    <div class="description" id="overview">
+        <h2>Who is this checker for?</h2>
+        <p>If you're worried you could have diabetes, this checker can help you figure out how likely you are to get it and how high your risk is.
+        </p>
+        <h2>How precise is it?</h2>
+        <p>A blood test is the only convincing test for diabetes. This checker, on the other hand, should indicate whether or not you should seek medical treatment. The test can also act as a reference for medical professionals.
+        </p>
+        <h2>Dataset</h2>
+        <p>The test is based on the dataset provided by the National Institute of Diabetes and Digestive and Kidney Diseases. The dataset contains 768 records, 500 of which are non-diabetic and 268 of which are diabetic.
+        </p>
+    </div>
+    <div class="form-wrapper" id="check">
+        <h2>Check your probability of <br>having diabetes here!</h2>
+        <form action = "/main" method="POST">
+            <label>Pregnancies</label><br>
+            <input type="number" name="pregnancies" placeholder="e.g: 2" min="0" required><br>
+            <label>Glucose(in mg/dL)</label><br>
+            <input type="number" name="glucose" placeholder="e.g: 89" min="1" required><br>
+            <label>Insulin(2 hour serum insulin in mu U/ml)</label><br>
+            <input type="number" name="insulin" placeholder="e.g: 79" min="1" required><br>
+            <label>BMI</label><br>
+            <input type="number" name="bmi" placeholder="e.g: 28" min="1" step="0.01" required><br>
+            <label>Diabetes Pedigree Function</label><br>
+            <input type="number" name="dpf" placeholder="e.g: 0.25" min="0" step="0.01" required><br>
+            <label>Age</label><br>
+            <input type="number" name="age" placeholder="e.g: 21" min="1"required><br>
+            <p> <input type ="submit" value="submit" /> </p>
+        </form>
+        <br>
+        <div class="result">
+        {% if show %}
+            {% for variable, value in original_input.items() %}
+                <b>{{ variable }}</b> : {{ value }}<br>
+            {% endfor %}
+            {% if result==0 %}
+                <h2>Great! You have low chance of having diabetes.</h2>
+            {% else %}
+                <h2>Uh-oh! We think you might have a high chance of having diabetes.
+                    Try to seek medical attention.
+                </h2>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="diabetes-edu" id="types">
+        <h2>NOTE: </h2>
+        <p>If you are unaware of any of the input attributes, you may use the mean values (mentioned below) accordingly.</p>
+            <p>Glucose: 121</p>
+            <p>Insulin: 157</p>
+            <p>BMI: 30</p>
+            <p>Diabetes Pedigree Function: 0.47</p>
+        <br>
+        <h2>Types of Diabetes</h2>
+        <div class="types">
+            <h3>Type 1 Diabetes</h3>
+            <p>This kind of diabetes, also known as juvenile diabetes, is caused by the body's inability to manufacture insulin. Insulin-dependent people with type I diabetes require daily injections of artificial insulin to keep alive.</p>
+        </div>
+        <div class="types">
+            <h3>Type 2 Diabetes</h3>
+            <p>The way the body utilises insulin is affected by type 2 diabetes. Unlike type I diabetes, the body still produces insulin, but the cells in the body do not respond to it as well as they previously did. According to the National Institute of Diabetes and Digestive and Kidney Diseases, this is the most frequent kind of diabetes, and it has a significant relation to obesity.</p>
+        </div>
+        <div class="types">
+            <h3>Gestational Diabetes</h3>
+            <p>This kind affects women during pregnancy, when the body's insulin sensitivity decreases. 
+                Gestational diabetes does not affect all women and normally goes away after pregnancy.</p>
+        </div>
+    </div>
+
+    <div class="diabetes-edu" id="tips">
+        <h2>Exercise and Diet Tips</h2>
+        <p>When a person is diagnosed with type 2 diabetes, their doctor may typically advise them to make lifestyle adjustments to help them lose weight and improve their overall health.<br>
+        The following are some steps a person may take to embrace a diabetes-friendly lifestyle:</p>
+        <ul class="list">
+            <li class="list-item">Eating a diet rich in fresh, nutritious foods such as whole grains, fruits, vegetables, lean proteins, low-fat dairy, and healthy fats like nuts.</li>
+            <li class="list-item">Avoiding high-sugar foods, such as sweetened drinks, fried meals, and high-sugar sweets, that provides calories with no additional nutritional value.</li>
+            <li class="list-item">Avoiding excessive alcohol consumption or limiting consumption to one or two drinks per day for women and two drinks per day for males.</li>
+            <li class="list-item">Walking, aerobics, riding a bike, or swimming for at least 30 minutes five days a week is recommended.</li>
+            <li class="list-item">When exercising, recognise the symptoms of low blood sugar, such as dizziness, disorientation, weakness, and excessive perspiration.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Made with love ❤️.</p>
+    </footer>
+</body>
+</html>
